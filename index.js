@@ -26,7 +26,7 @@ const options = {
 let web3 = new Web3(new Web3.providers.WebsocketProvider(process.env.WSS_RPC_URL, options))
 let contract = new web3.eth.Contract([{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"solver","type":"address"},{"indexed":false,"internalType":"address","name":"challenge","type":"address"},{"indexed":false,"internalType":"string","name":"twitterHandle","type":"string"}],"name":"ChallengeSolved","type":"event"}], "0x39338138414Df90EC67dC2EE046ab78BcD4F56D9")
 async function handle_event(event) {
-    const {solver, challenge, twitterHandle} = event.returnValues;
+    let {solver, challenge, twitterHandle} = event.returnValues;
     if (!twitterHandle.startsWith("@")) {
         twitterHandle = "@" + twitterHandle;
     }
