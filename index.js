@@ -50,3 +50,21 @@ contract.events.ChallengeSolved({
     handle_event(event)
 })
 .on('error', console.error);
+
+
+
+/*
+NOTE:
+You can test out the code instead of waiting for a challenge to be solved by replacing lines 46-52 with this:
+
+contract.events.ChallengeSolved({
+    fromBlock:99740826 
+})
+.on('data', async function(event){
+    handle_event(event)
+})
+.on('error', console.error);
+
+This will run code for previously solved challenge txs. You can also edit the fromBlock to be more recent if you don't want Twitter to be spammed (in case many challenges have been solved)
+You can then switch it back after.
+*/
